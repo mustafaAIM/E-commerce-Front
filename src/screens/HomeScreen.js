@@ -48,7 +48,7 @@ function HomeScreen() {
             ) : (
                 <div>
                     <Row className={styles.rowSpacing}>
-                        {products.map(product => (
+                        {products?.map(product => (
                             <Col key={product._id} sm={12} md={6} lg={4} xl={3} className={styles.rowSpacing}>
                                 <Product className={styles.productCard} product={product} />
                             </Col>

@@ -55,7 +55,7 @@ function CartScreen() {
           </Message>
         ) : (
           <ListGroup variant="flush">
-            {cartItems.map((item) => (
+            {cartItems?.map((item) => (
               <ListGroup.Item key={item.product}>
                 <Row>
                   <Col md={2}>
@@ -77,7 +77,7 @@ function CartScreen() {
                         )
                       }
                     >
-                      {[...Array(item.countInStock).keys()].map((x) => (
+                      {[...Array(item.countInStock).keys()]?.map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
                         </option>
