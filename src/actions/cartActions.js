@@ -6,10 +6,11 @@ import {
 
     CART_SAVE_PAYMENT_METHOD,
 } from '../constants/cartConstants'
-
+import { BASE_URL } from './Api'
+ 
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/products/${id}`)
+    const { data } = await axios.get(`${BASE_URL}/api/products/${id}`)
 
     dispatch({
         type: CART_ADD_ITEM,

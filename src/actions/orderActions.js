@@ -176,7 +176,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `/api/orders/${order._id}/deliver/`,
+            `${BASE_URL}/api/orders/${order._id}/deliver/`,
             {},
             config
         )
@@ -217,7 +217,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `/api/orders/myorders/`,
+            `${BASE_URL}/api/orders/myorders/`,
             config
         )
 
@@ -256,7 +256,7 @@ export const listOrders = () => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `/api/orders/`,
+            `${BASE_URL}/api/orders/`,
             config
         )
 
