@@ -24,6 +24,7 @@ import UserEditScreen from './screens/UserEditScreen';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen'; 
+import AdminDashboard from './screens/AdminDashboard';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/" element={<HomeScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/register" element={<RegisterScreen />} />
+            <Route path="/dashboard" element={<AdminDashboard />} />
             <Route path="/profile" element={<ProfileScreen />} />
             <Route path="/shipping" element={<ShippingScreen />} />
             <Route path="/placeorder" element={<PlaceOrderScreen />} />

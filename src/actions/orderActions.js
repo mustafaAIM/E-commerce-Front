@@ -49,7 +49,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.post(
-            `/api/orders/add/`,
+            `${BASE_URL}/api/orders/add/`,
             order,
             config
         )
@@ -96,7 +96,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.get(
-            `/api/orders/${id}/`,
+            `${BASE_URL}/api/orders/${id}/`,
             config
         )
 
@@ -136,7 +136,7 @@ export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
         }
 
         const { data } = await axios.put(
-            `/api/orders/${id}/pay/`,
+            `${BASE_URL}/api/orders/${id}/pay/`,
             paymentResult,
             config
         )

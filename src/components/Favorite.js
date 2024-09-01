@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Product from "./Product"; // Import your Product component
 import { useSelector } from "react-redux";
+import { BASE_URL } from "../actions/Api";
 
 function Favorite() {
   const [favoriteProducts, setFavoriteProducts] = useState([]);
@@ -17,7 +18,7 @@ function Favorite() {
         )?.access;
         if (!accessToken) throw new Error("Access token is missing");
 
-        const response = await fetch("/api/products/favorites", {
+        const response = await fetch(`${BASE_URL}/api/products/favorites`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

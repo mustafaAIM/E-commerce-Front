@@ -1,24 +1,26 @@
+/* Enhanced brand name styling */
 .brand-name {
   font-weight: bold;
-  font-size: 1.8rem; /* Increase font size for prominence */
+  font-size: 2rem; /* Larger font size for emphasis */
   color: #ff8000;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  margin-right: 2rem; /* Adjust space between brand and search */
+  margin-right: 2rem; /* Space between brand and search */
 }
 
+/* Search form styling */
 .search-form {
   position: relative;
-  width: 300px; /* Control search box width */
+  width: 350px; /* Increased width for better usability */
 }
 
 .search-box-container {
   display: flex;
   align-items: center;
   border-radius: 20px; /* Rounded corners for a modern look */
-  background-color: #181818; /* Darker background for contrast */
-  border: 1px solid #333;
+  background-color: #222; /* Darker background for contrast */
+  border: 1px solid #444; /* Subtle border */
   padding: 5px;
-  overflow: hidden; /* Hide overflow to create a smooth look */
+  overflow: hidden; /* Smooth look */
 }
 
 .search-input {
@@ -39,7 +41,7 @@
   background: none;
   border: none;
   padding: 8px 12px;
-  border-radius: 0 20px 20px 0; /* Rounded corners for the button side */
+  border-radius: 0 20px 20px 0; /* Rounded corners for the button */
   cursor: pointer;
   color: #ff8000;
 }
@@ -48,24 +50,51 @@
   background-color: #333; /* Darken on hover */
 }
 
-/* Adjust Navbar styling */
-
+/* Navbar styling */
 .navbar {
-  border-bottom: 1px solid #ff7622 ; /* Subtle border */
+  border-bottom: 1px solid #ff7622; /* Subtle border */
   padding: 10px 0; /* Add some padding */
 }
 
+/* Navbar brand styling */
 .navbar-brand {
   font-weight: bold;
 }
 
+/* Nav links styling */
 .nav-link {
   color: #fff; /* White text color */
   font-weight: normal; /* Less bold text for nav links */
-  margin: 10px 10px; /* Spacing between nav links */
-  transition: color 0.3s ease; /* Smooth color transition */
+  margin: 0 15px; /* Increase spacing between nav links */
+  padding: 10px 15px; /* Add padding around the text */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+  border-radius: 5px; /* Rounded corners for better touch targets */
 }
 
+/* Nav link hover effect */
 .nav-link:hover {
   color: #ff8000 !important; /* Lighten color on hover */
+  background-color: rgba(255, 128, 0, 0.2); /* Light background on hover */
+}
+
+/* Active link styling */
+.nav-link.active {
+  color: #ff8000; /* Highlight active link color */
+  background-color: rgba(255, 128, 0, 0.1); /* Light background for active link */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .brand-name {
+    font-size: 1.5rem; /* Slightly smaller brand name on mobile */
+  }
+
+  .search-form {
+    width: 100%; /* Full-width search box on mobile */
+  }
+
+  .nav-link {
+    margin: 1px 0; /* Reduce spacing on mobile */
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
 }
