@@ -23,7 +23,7 @@ function ProductCarousel() {
                 ? <Message variant='danger'>{error}</Message>
                 : (
                     <Carousel pause='hover' className='product-carousel' indicators={true} controls={true}>
-                        {products.map(product => (
+                        {products?.map(product => (
                             <Carousel.Item key={product._id}>
                                 <Link to={`/product/${product._id}`} className='carousel-link'>
                                     <Image src={product.image} alt={product.name} fluid className='carousel-image' />
