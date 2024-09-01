@@ -1,1 +1,1 @@
-export const BASE_URL = "https://project-d3c6.onrender.com/"
+export const BASE_URL = "https://project-d3c6.onrender.com"
