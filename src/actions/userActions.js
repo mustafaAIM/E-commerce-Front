@@ -36,6 +36,7 @@ import {
 } from '../constants/userConstants'
 
 import { ORDER_LIST_MY_RESET } from '../constants/orderConstants'
+import { BASE_URL } from './Api'
 
 export const login = (email, password) => async (dispatch) => {
     try {

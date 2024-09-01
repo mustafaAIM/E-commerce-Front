@@ -30,6 +30,8 @@ import {
     PRODUCT_TOP_FAIL,
 
 } from '../constants/productConstants'
+import { BASE_URL } from './Api';
+
 
 export const listProducts = (keyword = '') => async (dispatch, getState) => {
   try {

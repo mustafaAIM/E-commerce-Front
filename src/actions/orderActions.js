@@ -29,7 +29,7 @@ import {
 } from '../constants/orderConstants'
 
 import { CART_CLEAR_ITEMS } from '../constants/cartConstants'
-
+import { BASE_URL } from './Api'
 
 export const createOrder = (order) => async (dispatch, getState) => {
     try {
