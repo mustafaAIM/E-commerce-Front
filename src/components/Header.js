@@ -87,7 +87,7 @@ function Header() {
                 <i className="fas fa-info-circle"></i> About Us
               </Nav.Link>
             </LinkContainer>
-          {userInfo && userInfo.isAdmin &&  <LinkContainer to="/favorite">
+          {userInfo &&  <LinkContainer to="/favorite">
               <Nav.Link className="nav-icon">
                 <i className="fas fa-heart"></i> Favorite
               </Nav.Link>
