@@ -18,7 +18,7 @@ function Favorite() {
         const accessToken = JSON.parse(
           localStorage.getItem("userInfo")
         )?.access;
-        if (!accessToken) throw new Error("Access token is missing");
+        if (!accessToken) return <FavoritesPage/>
 
         const response = await fetch(`${BASE_URL}/api/products/favorites`, {
           method: "GET",
