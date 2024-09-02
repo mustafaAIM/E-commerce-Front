@@ -1,69 +1,58 @@
 // src/pages/Dashboard.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MonthlyRevenueChart from "../components/MonthlyRevenueChart";
 import TopProductsChart from "../components/TopProductChart";
 import TopProductsRatingChart from "../components/TopProductsRatingChart";
 import ProductTable from "../components/ProductTable";
+import axios from "axios";
+import { BASE_URL } from "../actions/Api";
 
 const Dashboard = () => {
-  // Mock data
-  const monthlyRevenueData = [
-    { month: "Jan", revenue: 4000 },
-    { month: "Feb", revenue: 3000 },
-    { month: "Mar", revenue: 5000 },
-    { month: "Apr", revenue: 4500 },
-    { month: "May", revenue: 6000 },
-    { month: "Jun", revenue: 5500 },
-    { month: "Jul", revenue: 7000 },
-    { month: "Aug", revenue: 6500 },
-    { month: "Sep", revenue: 6200 },
-    { month: "Oct", revenue: 6800 },
-    { month: "Nov", revenue: 7200 },
-    { month: "Dec", revenue: 7500 },
-  ];
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const topProductsData = [
-    { product: "Product A", quantity: 120 },
-    { product: "Product B", quantity: 100 },
-    { product: "Product C", quantity: 80 },
-    { product: "Product D", quantity: 70 },
-    { product: "Product E", quantity: 60 },
-  ];
+  useEffect(() => {
+    // Fetch dashboard data from the API
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/products/dashboard/`);
+        setData(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
 
-  const topProductsRatingData = [
-    { product: "Product A", rating: 4.8 },
-    { product: "Product B", rating: 4.6 },
-    { product: "Product C", rating: 4.5 },
-    { product: "Product D", rating: 4.3 },
-    { product: "Product E", rating: 4.2 },
-  ];
+    fetchData();
+  }, []);
 
-  const productTableData = [
-    { product: "Product A", inStock: 30 },
-    { product: "Product B", inStock: 20 },
-    { product: "Product C", inStock: 15 },
-    { product: "Product D", inStock: 10 },
-    { product: "Product E", inStock: 5 },
-  ];
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  // Extract data for each component
+  const {
+    users_count,
+    orders_delivered_count,
+    total_income,
+    number_of_products,
+    monthly_revenue,
+    top_products,
+    top_products_ratings,
+    products_in_stock,
+  } = data;
 
   const columns = [
     {
       Header: "Product",
-      accessor: "product",
+      accessor: "name",
     },
     {
       Header: "In-Stock",
-      accessor: "inStock",
+      accessor: "countInStock",
     },
   ];
-
-  // Mock overall data
-  const data = {
-    users: 500,
-    ordersDelivered: 450,
-    totalIncome: 70000,
-    numberOfProducts: 25,
-  };
 
   return (
     <div
@@ -83,13 +72,13 @@ const Dashboard = () => {
         }}
       >
         {[
-          { title: "Users", value: data.users },
-          { title: "Orders Delivered", value: data.ordersDelivered },
+          { title: "Users", value: data.users_count },
+          { title: "Orders Delivered", value: data.orders_delivered_count },
           {
             title: "Total Income",
-            value: `$${data.totalIncome.toLocaleString()}`,
+            value: `$${data.total_income.toLocaleString()}`,
           },
-          { title: "Number of Products", value: data.numberOfProducts },
+          { title: "Number of Products", value: data.number_of_products },
         ].map((item, index) => (
           <div
             key={index}
@@ -171,7 +160,7 @@ const Dashboard = () => {
           <h2 style={{ marginBottom: "10px", color: "#ff5722" }}>
             Monthly Revenue
           </h2>
-          <MonthlyRevenueChart data={monthlyRevenueData} />
+          <MonthlyRevenueChart data={data.monthly_revenue} />
         </div>
         <div
           style={{
@@ -188,7 +177,7 @@ const Dashboard = () => {
           <h2 style={{ marginBottom: "10px", color: "#ff5722" }}>
             Top Five Products by Quantity
           </h2>
-          <TopProductsChart data={topProductsData} />
+          <TopProductsChart data={data.top_products} />
         </div>
       </div>
 
@@ -215,7 +204,7 @@ const Dashboard = () => {
           <h2 style={{ marginBottom: "10px", color: "#ff5722" }}>
             Top Five Products by Rating
           </h2>
-          <TopProductsRatingChart data={topProductsRatingData} />
+          <TopProductsRatingChart data={data.top_products_ratings} />
         </div>
         <div
           style={{
@@ -232,7 +221,7 @@ const Dashboard = () => {
           <h2 style={{ marginBottom: "10px", color: "#ff5722" }}>
             Product Table
           </h2>
-          <ProductTable columns={columns} data={productTableData} />
+          <ProductTable columns={columns} data={products_in_stock} />
         </div>
       </div>
     </div>
