@@ -1,0 +1,52 @@
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f1e7; /* Light wood background color */
+  /*background-image: url('/path/to/wood-texture.jpg'); /* Optional: Wood texture background */
+  background-size: cover;
+  color: #3e2723; /* Dark wood text color */
+  font-family: 'Merriweather', serif; /* Elegant serif font */
+  text-align: center;
+  padding: 0 20px;
+}
+
+.content-wrapper {
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.error-code {
+  font-size: 120px;
+  margin: 0;
+  font-weight: bold;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+}
+
+.error-message {
+  font-size: 36px;
+  margin-top: 20px;
+  font-weight: 300;
+}
+
+.error-description {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.error-description a {
+  color: #8d6e63; /* Complementary link color */
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid #8d6e63;
+  transition: all 0.3s ease;
+}
+
+.error-description a:hover {
+  color: #5d4037; /* Darker wood color on hover */
+  border-bottom: 2px solid #5d4037;
+}
+

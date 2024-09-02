@@ -1,6 +1,15 @@
 // src/components/TopProductsChart.js
-import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const TopProductsChart = ({ data }) => (
   <ResponsiveContainer width="100%" height={400}>

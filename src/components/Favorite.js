@@ -3,6 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import Product from "./Product"; // Import your Product component
 import { useSelector } from "react-redux";
 import { BASE_URL } from "../actions/Api";
+import NotFound from "../screens/NotFound";
+import FavoritesPage from "../screens/NoFavoriteYet";
 
 function Favorite() {
   const [favoriteProducts, setFavoriteProducts] = useState([]);
@@ -62,7 +64,7 @@ function Favorite() {
       <Row>
         {favoriteProducts.length === 0 ? (
           <Col>
-            <p>No favorite products yet.</p>
+              <FavoritesPage/>
           </Col>
         ) : (
           favoriteProducts.map((product) => (

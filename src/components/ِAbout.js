@@ -10,10 +10,14 @@ function AboutUs() {
           <h2 className="about-title">About Us</h2>
           <h3> Simply </h3>
           <p className="about-text">
-          "Welcome to our humble platform specializing in e-commerce, where we provide you with all the details about the products sold through it. Please note that our platform is dedicated to handmade products.
+            "Welcome to our humble platform specializing in e-commerce, where we
+            provide you with all the details about the products sold through it.
+            Please note that our platform is dedicated to handmade products.
           </p>
           <p className="about-text">
-          "We are TIC students who came together to present this project, which represents the culmination of our years of study in this field. We hope it meets your expectations and that you enjoy it."
+            "We are TIC students who came together to present this project,
+            which represents the culmination of our years of study in this
+            field. We hope it meets your expectations and that you enjoy it."
           </p>
         </Col>
       </Row>
@@ -66,6 +70,5 @@ function AboutUs() {
     </Container>
   );
 }
-
 
 export default AboutUs;

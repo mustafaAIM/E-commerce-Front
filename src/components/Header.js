@@ -87,11 +87,11 @@ function Header() {
                 <i className="fas fa-info-circle"></i> About Us
               </Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/favorite">
+          {userInfo && userInfo.isAdmin &&  <LinkContainer to="/favorite">
               <Nav.Link className="nav-icon">
                 <i className="fas fa-heart"></i> Favorite
               </Nav.Link>
-            </LinkContainer>
+            </LinkContainer>}
           </Nav>
         </Navbar.Collapse>
       </Container>
