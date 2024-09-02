@@ -6,6 +6,7 @@ import './Product.css'; // Import the CSS file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { useSelector } from 'react-redux'; 
 import { FaHeart } from "react-icons/fa";
+import { BASE_URL } from '../actions/Api';
 function ProductCard({ product }) {
     const userInfo = useSelector((state) => state.userLogin.userInfo);
     const [isFavorite, setIsFavorite] = useState(product.is_favorite);
@@ -14,7 +15,7 @@ function ProductCard({ product }) {
         if (!userInfo) return;
 
         try {
-            const response = await fetch(`/api/products/favorites/`, {
+            const response = await fetch(`${BASE_URL}/api/products/favorites/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -41,7 +42,7 @@ function ProductCard({ product }) {
           const accessToken = JSON.parse(localStorage.getItem('userInfo'))?.access;
           if (!accessToken) throw new Error('Access token is missing');
 
-          const response = await fetch(`/api/products/favorites/${productId}`, {
+          const response = await fetch(`${BASE_URL}/api/products/favorites/${productId}`, {
               method: 'DELETE',
               headers: {
                   'Content-Type': 'application/json',
