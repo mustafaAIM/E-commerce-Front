@@ -40,6 +40,7 @@
   font-size: 1.25rem; /* Slightly larger font size for title */
   font-weight: 600; /* Bold font weight */
   margin-bottom: 5px; /* Space below the title */
+  color: #ff8000;
 }
 
 .carousel-price {
